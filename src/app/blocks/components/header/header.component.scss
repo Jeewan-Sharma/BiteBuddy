@@ -1,0 +1,10 @@
+.logo {
+  font-family: cursive;
+}
+
+.red-on-hover {
+  transition: all 0.3s ease-in;
+  &:hover {
+    color: var(--red-500) !important;
+  }
+}

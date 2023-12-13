@@ -1,0 +1,23 @@
+<div class="py-3 lg:px-8 flex justify-content-between">
+  <!-- logo -->
+  <div class="flex gap-2 align-items-center cursor-pointer">
+    <div (click)="_router.navigateByUrl('/')">
+      <p class="text-4xl font-bold text-red-500 logo">Bite Buddy</p>
+    </div>
+  </div>
+  <!-- Menu Bar -->
+  <div class="hidden lg:flex gap-6 align-items-center">
+    <p (click)="_router.navigateByUrl('/')" class="text-xl text-700 font-bold cursor-pointer red-on-hover">
+      Home</p>
+    <p class="text-xl text-700 font-bold cursor-pointer red-on-hover">About Us</p>
+    <p class="text-xl text-700 font-bold cursor-pointer red-on-hover">Menu</p>
+    <p class="text-xl text-700 font-bold cursor-pointer red-on-hover">Gallery</p>
+    <p class="text-xl text-700 font-bold cursor-pointer red-on-hover">Blog</p>
+  </div>
+  <!-- Right: Icon Bar -->
+  <div class="flex gap-4 align-items-center">
+    <i class="pi pi-heart text-700 text-3xl cursor-pointer mt-2 red-on-hover"></i>
+    <i class="pi pi-shopping-cart text-700 text-3xl cursor-pointer mt-2 red-on-hover"></i>
+    <!-- <i (click)="cartClicked()" class="pi pi-shopping-cart text-700 text-3xl cursor-pointer mt-2 red-on-hover"></i> -->
+  </div>
+</div>

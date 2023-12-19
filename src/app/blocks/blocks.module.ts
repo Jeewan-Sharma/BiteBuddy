@@ -5,17 +5,21 @@ import { BlocksRoutingModule } from './blocks-routing.module';
 import { AppLayoutComponent } from './components/app-layout/app-layout.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @NgModule({
   declarations: [
     AppLayoutComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
-    BlocksRoutingModule
+    BlocksRoutingModule,
+    ProgressSpinnerModule
   ]
 })
 export class BlocksModule { }

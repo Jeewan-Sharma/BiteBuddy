@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ASSETS } from "@core/const";
 
 @Component({
   selector: 'app-footer',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
+  readonly ASSETS = ASSETS;
+
   businessDetails = {
     name: 'Bite Buddy',
     description: 'A Symphony of Tastes, Where Every Bite Tells a Story.',

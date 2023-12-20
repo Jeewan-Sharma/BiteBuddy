@@ -5,15 +5,19 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeRootComponent } from './components/home-root/home-root.component';
 import { HomeComponent } from './components/home/home.component';
 
+import { SkeletonModule } from 'primeng/skeleton';
+import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
   declarations: [
     HomeRootComponent,
-    HomeComponent
+    HomeComponent,
+    BannerComponent
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    SkeletonModule
   ]
 })
 export class HomeModule { }

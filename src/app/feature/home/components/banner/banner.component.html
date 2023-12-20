@@ -1,0 +1,14 @@
+<ng-container *ngIf="pageState$ | async as currentState">
+  <ng-container [ngSwitch]="currentState">
+    <!-- LOADING -->
+    <div *ngSwitchCase="ePageState.LOADING">
+      <div class="border-1 surface-border surface-card">
+        <p-skeleton width="100%" height="30rem"></p-skeleton>
+      </div>
+    </div>
+    <!-- SUCCESS -->
+    <div *ngSwitchCase="ePageState.SUCCESS">
+      banner
+    </div>
+  </ng-container>
+</ng-container>

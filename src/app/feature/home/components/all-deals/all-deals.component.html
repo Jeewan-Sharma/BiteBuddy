@@ -1,1 +1,19 @@
-<p>all-deals works!</p>
+<div class="mt-3 lg:mt-6">
+  <div class="text-center">
+    <p class="text-3xl lg:text-6xl font-bold text-800 text-center">All Deals</p>
+    <div class="flex align-items-center gap-3 justify-content-center">
+      <div class="horizontal-line align-items-center"></div>
+      <p class="text-xl lg:text-2xl text-600 text-center cursive">Limited Offer - Grab Now</p>
+      <div class="horizontal-line"></div>
+    </div>
+  </div>
+  <!-- data -->
+  <ng-container *ngIf="pageState$ | async as currentState">
+    <ng-container [ngSwitch]="currentState">
+      <!-- LOADING -->
+      <div *ngSwitchCase="ePageState.LOADING">
+        <app-loading-items></app-loading-items>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

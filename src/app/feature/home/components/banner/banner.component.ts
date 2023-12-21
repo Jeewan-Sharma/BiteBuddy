@@ -37,9 +37,11 @@ export class BannerComponent implements OnInit {
     this.pageState$.next(this.ePageState.LOADING);
     this._loaderService.showLoader();
     this.businessDetails = await this._apiService.getBusinessDetails();
-    this._loaderService.hideLoader()
-    this.pageState$.next(this.ePageState.SUCCESS);
-    console.log(this.businessDetails)
+    setTimeout(() => {
+      this._loaderService.hideLoader()
+      this.pageState$.next(this.ePageState.SUCCESS);
+    }, 2000);
+
   }
 
   async checkIsBusinessOpen() {

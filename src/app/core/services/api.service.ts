@@ -11,9 +11,7 @@ export class ApiService {
 
   getBusinessDetails(): Promise<IBusinessDetails> {
     return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(PSEUDO_API.businessDetails)
-      }, 2000);
+      resolve(PSEUDO_API.businessDetails)
     })
   }
 }

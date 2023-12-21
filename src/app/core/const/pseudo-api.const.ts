@@ -1,7 +1,7 @@
 import { ASSETS } from './assets.const'
 const businessDetails = {
   name: 'Bite Buddy',
-  description: 'A Symphony of Exquisite Tastes, Where Every Bite Tells a Enchanting Story.',
+  description: 'A Symphony of Exquisite Tastes, Where Every Bite Tells an Enchanting Story.',
   banner: ASSETS.IMAGES.BANNER,
   facebookLink: 'https://facebook.com',
   appStoreLink: 'https://appstore.com',

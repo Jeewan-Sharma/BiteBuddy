@@ -11,6 +11,7 @@ import { AllDealsComponent } from './components/all-deals/all-deals.component';
 import { SkeletonModule } from 'primeng/skeleton';
 import { DividerModule } from 'primeng/divider';
 import { ButtonModule } from 'primeng/button';
+import { LoadingItemsComponent } from '@shared/components';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ButtonModule } from 'primeng/button';
     HomeRoutingModule,
     SkeletonModule,
     DividerModule,
-    ButtonModule
+    ButtonModule,
+    LoadingItemsComponent
   ]
 })
 export class HomeModule { }

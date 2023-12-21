@@ -1,27 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ASSETS } from "@core/const";
+import { IBusinessDetails } from '@core/models';
+import { ApiService } from '@core/services';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
   readonly ASSETS = ASSETS;
 
-  businessDetails = {
-    name: 'Bite Buddy',
-    description: 'A Symphony of Tastes, Where Every Bite Tells a Story.',
-    facebookLink: 'https://facebook.com',
-    appStoreLink: 'https://appstore.com',
-    googlePlayLink: 'https://google.com',
-    streetAddress: '30-32 Fifth Avenue, Black Town',
-    city: 'Sydney',
-    state: 'New South Wales',
-    zipCode: '2148',
-    storePhoneNumber: '0420817538',
-    businessEmail: 'sjeewan53@gmail.com',
-    openTime: '10:00 am',
-    closeTime: '05:00 pm'
+  businessDetails!: IBusinessDetails;
+
+  constructor(
+    private _apiService: ApiService
+  ) { }
+  async ngOnInit() {
+    this.businessDetails = await this._apiService.getBusinessDetails();
   }
+
 }

@@ -1,6 +1,8 @@
+import { ASSETS } from './assets.const'
 const businessDetails = {
   name: 'Bite Buddy',
-  description: 'A Symphony of Tastes, Where Every Bite Tells a Story.',
+  description: 'A Symphony of Exquisite Tastes, Where Every Bite Tells a Enchanting Story.',
+  banner: ASSETS.IMAGES.BANNER,
   facebookLink: 'https://facebook.com',
   appStoreLink: 'https://appstore.com',
   googlePlayLink: 'https://google.com',
@@ -11,7 +13,7 @@ const businessDetails = {
   storePhoneNumber: '0420817538',
   businessEmail: 'sjeewan53@gmail.com',
   openTime: '10:00 am',
-  closeTime: '05:00 pm'
+  closeTime: '05:00 pm',
 }
 
 export const PSEUDO_API = {

@@ -8,7 +8,39 @@
     </div>
     <!-- SUCCESS -->
     <div *ngSwitchCase="ePageState.SUCCESS">
-      banner
+      <div class="w-full h-30rem relative">
+        <img src={{businessDetails.banner}} alt="@" class="w-full h-full object-fit ">
+        <div class="absolute top-0 left-0 w-full h-full background"></div>
+        <div class="absolute position px-5 lg:px-8 ">
+          <div class="grid mt-2">
+            <div class="col-12 lg:col-10">
+              <div class="flex align-items-center gap-3">
+                <p class="text-white text-xl">TASTE FOR EVERYONE</p>
+                <div class="horizontal-line"></div>
+              </div>
+              <p class="text-white text-3xl lg:text-6xl font-bold mt-3">
+                {{businessDetails.description.toUpperCase()}}
+              </p>
+              <button pButton pRipple label="Order Now"
+                class="text-white bg-red-500 border-red-500 h-4rem mt-5"></button>
+            </div>
+            <!--  -->
+            <div class="col-2 flex align-items-center">
+              <div class="hidden lg:block" *ngIf="(businessDetails.openTime && businessDetails.closeTime) != null">
+                <div class="flex justify-content-end">
+                  <img *ngIf="isBusinessOpen" [src]=ASSETS.IMAGES.OPEN alt="OPEN" class="w-7rem">
+                  <img *ngIf="!isBusinessOpen" [src]=ASSETS.IMAGES.CLOSED alt="OPEN" class="w-7rem">
+                </div>
+                <div class="mt-2 text-right">
+                  <p class=" text-white text-xl cursive">Opening Hours:</p>
+                  <p class="text-white text-xl cursive mt-1">{{businessDetails.openTime}} -
+                    {{businessDetails.closeTime}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </ng-container>
 </ng-container>

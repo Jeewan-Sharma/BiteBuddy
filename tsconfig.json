@@ -22,7 +22,6 @@
     "lib": ["ES2022", "dom"],
     "paths": {
       // Core
-      "@core/config": ["src/app/core/config/index"],
       "@core/const": ["src/app/core/const/index"],
       "@core/enums": ["src/app/core/enums/index"],
       "@core/guards": ["src/app/core/guards/index"],

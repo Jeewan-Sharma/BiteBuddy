@@ -1,0 +1,25 @@
+.object-fit {
+  object-fit: cover;
+}
+
+.position {
+  top: 4rem;
+}
+
+.background {
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.337),
+    rgba(0, 0, 0, 0.337)
+  );
+}
+
+.cursive {
+  font-family: cursive;
+}
+
+.horizontal-line {
+  width: 8rem;
+  height: 1px;
+  background-color: white;
+}

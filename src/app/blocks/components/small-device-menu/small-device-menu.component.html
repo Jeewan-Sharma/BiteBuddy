@@ -1,0 +1,27 @@
+<div class="sticky bottom-0 z-1 lg:hidden w-full surface-100 flex justify-content-around">
+  <div (click)="selectTab('About Us')" [ngClass]="selectedTab == 'About Us' ? 'border-red-500' : 'border-white'"
+    class="flex flex-column align-items-center border-top-2 p-2">
+    <i [ngClass]="{'text-red-500': selectedTab == 'About Us'}" class="pi pi-user text-2xl md:text-6xl text-600"></i>
+    <p [ngClass]="{'text-red-500': selectedTab == 'About Us'}">About Us</p>
+  </div>
+  <div (click)="selectTab('Menu')" [ngClass]="selectedTab == 'Menu' ? 'border-red-500' : 'border-white'"
+    class="flex flex-column align-items-center border-top-2 p-2">
+    <i [ngClass]="{'text-red-500': selectedTab == 'Menu'}" class="pi pi-list text-2xl md:text-6xl text-600"></i>
+    <p [ngClass]="{'text-red-500': selectedTab == 'Menu'}">Menu</p>
+  </div>
+  <div (click)="selectTab('Home')" [ngClass]="selectedTab == 'Home' ? 'border-red-500' : 'border-white'"
+    class="flex flex-column align-items-center border-top-2 p-2">
+    <i [ngClass]="{'text-red-500': selectedTab == 'Home'}" class="pi pi-home text-2xl md:text-6xl text-600"></i>
+    <p [ngClass]="{'text-red-500': selectedTab == 'Home'}">Home</p>
+  </div>
+  <div (click)="selectTab('Gallery')" [ngClass]="selectedTab == 'Gallery' ? 'border-red-500' : 'border-white'"
+    class="flex flex-column align-items-center border-top-2 p-2">
+    <i [ngClass]="{'text-red-500': selectedTab == 'Gallery'}" class="pi pi-images text-2xl md:text-6xl text-600"></i>
+    <p [ngClass]="{'text-red-500': selectedTab == 'Gallery'}">Gallery</p>
+  </div>
+  <div (click)="selectTab('Blog')" [ngClass]="selectedTab == 'Blog' ? 'border-red-500' : 'border-white'"
+    class="flex flex-column align-items-center border-top-2 p-2">
+    <i [ngClass]="{'text-red-500': selectedTab == 'Blog'}" class="pi pi-book text-2xl md:text-6xl text-600"></i>
+    <p [ngClass]="{'text-red-500': selectedTab == 'Blog'}">Blog</p>
+  </div>
+</div>

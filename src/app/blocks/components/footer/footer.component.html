@@ -1,68 +1,66 @@
-<!-- px-3 lg:px-8 -->
-<div class=" bg-teal-900">
-  <div class="lg:px-8 py-5 grid m-0">
-    <!-- logo -->
-    <div class="col-12 lg:col-4">
-      <div class="flex gap-2 align-items-center cursor-pointer">
-        <p class="text-3xl font-bold text-bluegray-50 cursive">{{businessDetails.name}}</p>
-      </div>
-      <p class="mt-3 text-white">{{businessDetails.description}}</p>
-      <p class="mt-5 text-white text-xl font-semibold">Find Us On</p>
-      <div class="mt-3 flex gap-4">
-        <a [href]=businessDetails.facebookLink target="_blank">
-          <i class="pi pi-facebook text-white text-3xl"></i>
-        </a>
-        <a [href]=businessDetails.appStoreLink target="_blank">
-          <i class="pi pi-apple text-white text-3xl"></i>
-        </a>
-        <a [href]=businessDetails.googlePlayLink target="_blank">
-          <i class="pi pi-google text-white text-3xl"></i>
-        </a>
-      </div>
+<div class="px-3 lg:px-8 py-5 bg-teal-900 grid m-0">
+  <!-- logo -->
+  <div class="col-12 lg:col-4">
+    <div class="flex gap-2 align-items-center cursor-pointer">
+      <img [src]="ASSETS.IMAGES.LOGO" alt="BITE BUDDY" width="70rem">
+      <p class="text-3xl font-bold text-bluegray-50 cursive">Bite Happiness</p>
     </div>
-    <div class="col-12 md:col-6 lg:col-2 mt-3 lg:mt-0">
-      <p class="text-white font-bold">OVERVIEW</p>
-      <div class="mt-2">
-        <p class="text-white">Home</p>
-        <p class="text-white mt-2">About Us</p>
-        <p class="text-white mt-2">Menu</p>
-        <p class="text-white mt-2">Gallery</p>
-        <p class="text-white mt-2">Blog</p>
-      </div>
+    <p class="mt-3 text-white">{{businessDetails.description}}</p>
+    <p class="mt-5 text-white text-xl font-semibold">Find Us On</p>
+    <div class="mt-3 flex gap-4">
+      <a [href]=businessDetails.facebookLink target="_blank">
+        <i class="pi pi-facebook text-white text-3xl"></i>
+      </a>
+      <a [href]=businessDetails.appStoreLink target="_blank">
+        <i class="pi pi-apple text-white text-3xl"></i>
+      </a>
+      <a [href]=businessDetails.googlePlayLink target="_blank">
+        <i class="pi pi-google text-white text-3xl"></i>
+      </a>
     </div>
-    <div class="col-12 md:col-6 lg:col-2 mt-3 lg:mt-0">
-      <p class="text-white font-bold">RESOURCE</p>
-      <div class="mt-2">
-        <p class="text-white">Help Center</p>
-        <p class="text-white mt-2">Terms of Use</p>
-        <p class="text-white mt-2">Privacy Policy</p>
-      </div>
+  </div>
+  <div class="col-12 md:col-6 lg:col-2 mt-3 lg:mt-0">
+    <p class="text-white font-bold">OVERVIEW</p>
+    <div class="mt-2">
+      <p class="text-white">Home</p>
+      <p class="text-white mt-2">About Us</p>
+      <p class="text-white mt-2">Menu</p>
+      <p class="text-white mt-2">Gallery</p>
+      <p class="text-white mt-2">Blog</p>
     </div>
-    <div class="col-12 md:col-6 lg:col-2 mt-3 lg:mt-0">
-      <p class="text-white font-bold">CONTACT</p>
-      <div class="mt-2">
-        <div class="flex gap-2 align-items-center">
-          <i class="pi pi-map-marker text-white text-xl"></i>
-          <p class="text-white">{{businessDetails.streetAddress}}, {{businessDetails.city}}, {{businessDetails.state}},
-            {{businessDetails.zipCode}}</p>
-        </div>
-        <div class="flex gap-2 align-items-center mt-3">
-          <i class="pi pi-phone text-white text-xl"></i>
-          <p class="text-white">{{businessDetails.storePhoneNumber }}</p>
-        </div>
-        <div class="flex gap-2 align-items-center mt-3">
-          <i class="pi pi-envelope text-white text-xl"></i>
-          <p class="text-white">{{businessDetails.businessEmail}}</p>
-        </div>
+  </div>
+  <div class="col-12 md:col-6 lg:col-2 mt-3 lg:mt-0">
+    <p class="text-white font-bold">RESOURCE</p>
+    <div class="mt-2">
+      <p class="text-white">Help Center</p>
+      <p class="text-white mt-2">Terms of Use</p>
+      <p class="text-white mt-2">Privacy Policy</p>
+    </div>
+  </div>
+  <div class="col-12 md:col-6 lg:col-2 mt-3 lg:mt-0">
+    <p class="text-white font-bold">CONTACT</p>
+    <div class="mt-2">
+      <div class="flex gap-2 align-items-center">
+        <i class="pi pi-map-marker text-white text-xl"></i>
+        <p class="text-white">{{businessDetails.streetAddress}}, {{businessDetails.city}}, {{businessDetails.state}},
+          {{businessDetails.zipCode}}</p>
+      </div>
+      <div class="flex gap-2 align-items-center mt-3">
+        <i class="pi pi-phone text-white text-xl"></i>
+        <p class="text-white">{{businessDetails.storePhoneNumber }}</p>
+      </div>
+      <div class="flex gap-2 align-items-center mt-3">
+        <i class="pi pi-envelope text-white text-xl"></i>
+        <p class="text-white">{{businessDetails.businessEmail}}</p>
+      </div>
 
-      </div>
     </div>
-    <div class="col-12 md:col-6 lg:col-2 mt-3 lg:mt-0">
-      <p class="text-white font-bold">OPENING HOURS</p>
-      <div class="mt-2">
-        <p class="text-white">Opening Time: {{businessDetails.openTime}}</p>
-        <p class="text-white mt-2">Closing Time: {{businessDetails.closeTime}}</p>
-      </div>
+  </div>
+  <div class="col-12 md:col-6 lg:col-2 mt-3 lg:mt-0">
+    <p class="text-white font-bold">OPENING HOURS</p>
+    <div class="mt-2">
+      <p class="text-white">Opening Time: {{businessDetails.openTime}}</p>
+      <p class="text-white mt-2">Closing Time: {{businessDetails.closeTime}}</p>
     </div>
   </div>
 </div>

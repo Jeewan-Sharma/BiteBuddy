@@ -7,12 +7,23 @@
       </div>
     </div>
     <!-- SUCCESS -->
+    <!-- open and close for small screen -->
     <div *ngSwitchCase="ePageState.SUCCESS">
+      <div *ngIf="(businessDetails.openTime && businessDetails.closeTime) != null" class="lg:hidden">
+        <div class="py-2 md:py-3 flex align-items-center justify-content-center gap-3 w-full"
+          [ngClass]="isBusinessOpen?'bg-green-300':'bg-red-300'">
+          <p *ngIf="isBusinessOpen" class="text-white font-bold text-2xl">OPEN</p>
+          <p *ngIf="!isBusinessOpen" class="text-white font-bold text-2xl">CLOSED</p>
+          <p class="text-white text-xl cursive"> {{businessDetails.openTime}} -
+            {{businessDetails.closeTime}}</p>
+        </div>
+      </div>
+      <!-- main banner -->
       <div class="w-full h-30rem relative">
         <img src={{businessDetails.banner}} alt="@" class="w-full h-full object-fit ">
         <div class="absolute top-0 left-0 w-full h-full background"></div>
         <div class="absolute position px-5 lg:px-8 ">
-          <div class="grid mt-2">
+          <div class="grid mt-2 p-0">
             <div class="col-12 lg:col-10">
               <div class="flex align-items-center gap-3">
                 <p class="text-white text-xl">TASTE FOR EVERYONE</p>
@@ -24,7 +35,7 @@
               <button pButton pRipple label="Order Now"
                 class="text-white bg-red-500 border-red-500 h-4rem mt-6"></button>
             </div>
-            <!--  -->
+            <!-- open and close for large screen -->
             <div class="col-2 flex align-items-center">
               <div class="hidden lg:block" *ngIf="(businessDetails.openTime && businessDetails.closeTime) != null">
                 <div class="flex justify-content-end">

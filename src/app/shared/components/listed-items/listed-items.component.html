@@ -1,0 +1,31 @@
+<div class="grid mt-5">
+  <div *ngFor="let food of foods" class="col-12 md:col-6 lg:col-3 m-1 lg:m-0">
+    <div>
+      <!--  -->
+      <div
+        class="image-box border-1 cursor-pointer border-round bg-gray-50 flex flex-row lg:flex-column justify-content-center align-items-center pb-0 lg:pb-2">
+        <div class="h-7rem lg:h-14rem w-4 lg:w-full overflow-hidden flex justify-content-center"
+          [ngClass]="{'border-round-left': _deviceWidthService.screenSize === 'sm' || _deviceWidthService.screenSize ==='md', 'border-round-top': _deviceWidthService.screenSize === 'lg' || _deviceWidthService.screenSize === 'xl'}">
+          <img src={{food.imageUrl}} alt="Shop Image" class="h-full w-full object-fit transition">
+        </div>
+        <div class="w-8 lg:w-11 px-2 lg:px-0">
+          <div class="text-2xl font-semibold text-800 white-space-nowrap overflow-hidden text-overflow-ellipsis">
+            {{food.item}}</div>
+          <div class="mt-1">
+            <div class="text-700 white-space-nowrap overflow-hidden text-overflow-ellipsis">
+              {{food.description}}
+            </div>
+          </div>
+          <div class="flex justify-content-between mt-1">
+            <p *ngIf="food.discount !== 0 && food.netPrice < food.price" class="text-xl text-red-300 line-through">
+              {{food.price | currency:'USD'}}</p>
+            <div class="text-right w-full">
+              <p class="text-xl font-semibold ">{{food.netPrice | currency:'USD'}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+    </div>
+  </div>
+</div>

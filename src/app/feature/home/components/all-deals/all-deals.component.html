@@ -14,6 +14,14 @@
       <div *ngSwitchCase="ePageState.LOADING">
         <app-loading-items></app-loading-items>
       </div>
+      <!-- Success -->
+      <div *ngSwitchCase="ePageState.SUCCESS">
+        <app-listed-items [foods]="allDeals"></app-listed-items>
+      </div>
+      <!-- Error -->
+      <div *ngSwitchCase="ePageState.ERROR">
+        Error
+      </div>
     </ng-container>
   </ng-container>
 </div>

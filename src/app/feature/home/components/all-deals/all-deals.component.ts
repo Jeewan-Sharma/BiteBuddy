@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EPageState } from '@core/enums';
 import { ApiService } from '@core/services';
 import { BehaviorSubject } from 'rxjs'
+import { IFoods } from 'src/app/core/models/foods.moldel';
 
 @Component({
   selector: 'app-all-deals',
@@ -16,6 +17,8 @@ export class AllDealsComponent implements OnInit {
     this.ePageState.DEFAULT
   );
 
+  allDeals!: IFoods[];
+
   constructor(
     private _apiService: ApiService
   ) { }
@@ -26,6 +29,11 @@ export class AllDealsComponent implements OnInit {
 
   getData() {
     this.pageState$.next(this.ePageState.LOADING);
+    setTimeout(async () => {
+      this.allDeals = await this._apiService.getALLDeals()
+      this.pageState$.next(this.ePageState.SUCCESS);
+      console.log(this.allDeals)
+    }, 3000);
   }
 
 }

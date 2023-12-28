@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IBusinessDetails } from '../models/businessDetails.model';
 import { PSEUDO_API } from '../const/pseudo-api.const';
+import { IFoods } from '../models/foods.moldel';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,17 @@ export class ApiService {
   getBusinessDetails(): Promise<IBusinessDetails> {
     return new Promise((resolve, reject) => {
       resolve(PSEUDO_API.businessDetails)
+    })
+  }
+
+  getTodaysSpecial(): Promise<IFoods[]> {
+    return new Promise((resolve, reject) => {
+      resolve(PSEUDO_API.todaysSpecial)
+    })
+  }
+  getALLDeals(): Promise<IFoods[]> {
+    return new Promise((resolve, reject) => {
+      resolve(PSEUDO_API.allDeals)
     })
   }
 }

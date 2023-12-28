@@ -1,0 +1,17 @@
+.transition {
+  transition: 0.5s ease-out;
+}
+
+.image-box {
+  border-color: var(--gray-400);
+  &:hover {
+    .object-fit {
+      transform: scale(1.3);
+    }
+    border-color: var(--bluegray-500);
+  }
+}
+
+.object-fit {
+  object-fit: cover;
+}

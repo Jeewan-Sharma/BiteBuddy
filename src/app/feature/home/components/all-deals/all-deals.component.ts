@@ -32,7 +32,6 @@ export class AllDealsComponent implements OnInit {
     setTimeout(async () => {
       this.allDeals = await this._apiService.getALLDeals()
       this.pageState$.next(this.ePageState.SUCCESS);
-      console.log(this.allDeals)
     }, 3000);
   }
 

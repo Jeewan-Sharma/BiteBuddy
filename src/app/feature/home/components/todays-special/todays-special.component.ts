@@ -32,7 +32,6 @@ export class TodaysSpecialComponent implements OnInit {
     setTimeout(async () => {
       this.todaysSpecial = await this._apiService.getTodaysSpecial();
       this.pageState$.next(this.ePageState.SUCCESS);
-      console.log(this.todaysSpecial)
     }, 3000);
   }
 

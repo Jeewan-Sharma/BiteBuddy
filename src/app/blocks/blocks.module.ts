@@ -21,7 +21,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
   imports: [
     CommonModule,
     BlocksRoutingModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
   ]
 })
 export class BlocksModule { }

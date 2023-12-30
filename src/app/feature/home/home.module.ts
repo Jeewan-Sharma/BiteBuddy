@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeRootComponent } from './components/home-root/home-root.component';
 import { HomeComponent } from './components/home/home.component';
@@ -11,6 +10,7 @@ import { AllDealsComponent } from './components/all-deals/all-deals.component';
 import { SkeletonModule } from 'primeng/skeleton';
 import { DividerModule } from 'primeng/divider';
 import { ButtonModule } from 'primeng/button';
+
 import { ListedItemsComponent, LoadingItemsComponent } from '@shared/components';
 
 @NgModule({

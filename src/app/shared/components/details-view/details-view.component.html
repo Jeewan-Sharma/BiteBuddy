@@ -1,12 +1,12 @@
 <div class="p-2 " *ngIf="selectedProduct">
   <div class="grid mt-2">
-    <div class="col-6">
+    <div class="col-12 lg:col-6">
       <div class="h-25rem w-full overflow-hidden border-round ">
         <img src={{selectedProduct.imageUrl}} alt="Shop Image" class="object-fit h-full w-full">
       </div>
     </div>
-    <div class="col-6 relative">
-      <div class="flex justify-content-between align-items-center">
+    <div class="col-12 lg:col-6 relative">
+      <div class="hidden lg:flex justify-content-between align-items-center">
         <p class="text-3xl font-bold">{{selectedProduct.item}}</p>
         <i (click)="onCloseClick()" class="pi pi-times text-2xl cursor-pointer"></i>
       </div>
@@ -25,7 +25,7 @@
           <p class="text-2xl text-600">{{selectedProduct.disLikes}}</p>
         </div>
       </div>
-      <div class="absolute bottom-0 w-full pb-2 pr-2">
+      <div class="hidden lg:block absolute bottom-0 w-full pb-2 pr-2">
         <div class="flex justify-content-between mt-4">
           <div class="input-custom">
             <p-inputNumber class="mt-2" [(ngModel)]="value" [showButtons]="true" buttonLayout="horizontal"

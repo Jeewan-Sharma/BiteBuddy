@@ -26,7 +26,38 @@
   </div>
 </div>
 
-<p-dialog class="header-less-dialog" [modal]='true' [(visible)]="detailsVisibility" [style]="{width: '50vw'}">
+<p-dialog *ngIf="_deviceWidthService.screenSize === 'lg' || _deviceWidthService.screenSize === 'xl'"
+  class="header-less-dialog" [modal]='true' [(visible)]="detailsVisibility" [style]="{width: '50vw'}">
   <app-details-view (closeClicked)="closeDetails($event)" [value]='cartQuantity' *ngIf="detailsVisibility"
     [selectedProduct]='selectedProduct'></app-details-view>
 </p-dialog>
+
+<p-sidebar *ngIf="_deviceWidthService.screenSize === 'sm' || _deviceWidthService.screenSize === 'md'"
+  [(visible)]="detailsVisibility" position="bottom" [style]="{height:'90vh'}" (onHide)="hideSidebar()"
+  styleClass="border-round-top">
+
+  <ng-template pTemplate="header">
+    <p class="text-3xl font-bold px-2">{{selectedProduct.item}}</p>
+  </ng-template>
+
+  <ng-template pTemplate="content">
+    <app-details-view (closeClicked)="closeDetails($event)" [value]='cartQuantity' *ngIf="detailsVisibility"
+      [selectedProduct]='selectedProduct'></app-details-view>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <div class="px-2 pb-2">
+      <div class="flex justify-content-between mt-4">
+        <div class="input-custom">
+          <p-inputNumber class="mt-2" [(ngModel)]="cartQuantity" [showButtons]="true" buttonLayout="horizontal"
+            inputId="horizontal" spinnerMode="horizontal" [step]="1" [min]="1" decrementButtonClass="p-button-danger"
+            incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus">
+          </p-inputNumber>
+        </div>
+        <p class="text-4xl text-800 font-semibold mt-2">{{selectedProduct.netPrice | currency:'USD'}}</p>
+      </div>
+      <button (click)="addToCart(selectedProduct)" pButton pRipple label="Add to Cart"
+        class="bg-red-500 border-red-500 mt-3 w-full"></button>
+    </div>
+  </ng-template>
+</p-sidebar>

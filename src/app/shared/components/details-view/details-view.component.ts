@@ -25,7 +25,7 @@ export class DetailsViewComponent {
     // selectedProduct.quantityInCart = this.value;
     // const res = await this._restaurantService.addToCart(selectedProduct)
     // if (res) {
-    //   this._messageService.add({ severity: 'success', summary: 'Added', detail: `${selectedProduct.item} added to Cart Successfully` });
+    // this._messageService.add({ severity: 'success', summary: 'Added', detail: `${selectedProduct.item} added to Cart Successfully` });
     // } else {
     //   this._messageService.add({ severity: 'error', summary: 'Error!', detail: `${selectedProduct.item} not added to Cart` });
     // }

@@ -9,6 +9,8 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { SmallDeviceMenuComponent } from './components/small-device-menu/small-device-menu.component';
 
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     CommonModule,
     BlocksRoutingModule,
     ProgressSpinnerModule,
+    ToastModule,
+    MessagesModule,
   ]
 })
 export class BlocksModule { }

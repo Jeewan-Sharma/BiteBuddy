@@ -5,6 +5,7 @@ import { DialogModule } from 'primeng/dialog';
 import { SidebarModule } from 'primeng/sidebar';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
+import { MessageService } from 'primeng/api';
 import { FormsModule } from '@angular/forms';
 import { IFoods } from 'src/app/core/models/foods.moldel';
 import { DetailsViewComponent } from '@shared/components';
@@ -23,7 +24,7 @@ export class ListedItemsComponent {
 
   @Input() foods: any;
 
-  constructor(protected _deviceWidthService: DeviceWidthService) { }
+  constructor(protected _deviceWidthService: DeviceWidthService, private _messageService: MessageService) { }
 
   viewDetails(product: IFoods) {
     this.detailsVisibility = true;
@@ -38,7 +39,7 @@ export class ListedItemsComponent {
     // selectedProduct.quantityInCart = this.value;
     // const res = await this._restaurantService.addToCart(selectedProduct)
     // if (res) {
-    //   this._messageService.add({ severity: 'success', summary: 'Added', detail: `${selectedProduct.item} added to Cart Successfully` });
+    this._messageService.add({ severity: 'success', summary: 'Added', detail: `${selectedProduct.item} added to Cart Successfully` });
     // } else {
     //   this._messageService.add({ severity: 'error', summary: 'Error!', detail: `${selectedProduct.item} not added to Cart` });
     // }

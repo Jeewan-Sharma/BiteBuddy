@@ -14,7 +14,7 @@
           [ngClass]="isBusinessOpen?'bg-green-300':'bg-red-300'">
           <p *ngIf="isBusinessOpen" class="text-white font-bold text-2xl">OPEN</p>
           <p *ngIf="!isBusinessOpen" class="text-white font-bold text-2xl">CLOSED</p>
-          <p class="text-white text-xl cursive"> {{businessDetails.openTime}} -
+          <p class="text-white text-xl"> {{businessDetails.openTime}} -
             {{businessDetails.closeTime}}</p>
         </div>
       </div>

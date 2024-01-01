@@ -28,7 +28,7 @@
       <div class="hidden lg:block absolute bottom-0 w-full pb-2 pr-2">
         <div class="flex justify-content-between mt-4">
           <div class="input-custom">
-            <p-inputNumber class="mt-2" [(ngModel)]="value" [showButtons]="true" buttonLayout="horizontal"
+            <p-inputNumber class="mt-2" [(ngModel)]="cartQuantity" [showButtons]="true" buttonLayout="horizontal"
               inputId="horizontal" spinnerMode="horizontal" [step]="1" [min]="1" decrementButtonClass="p-button-danger"
               incrementButtonClass="p-button-success" incrementButtonIcon="pi pi-plus"
               decrementButtonIcon="pi pi-minus">
@@ -36,7 +36,7 @@
           </div>
           <p class="text-4xl text-800 font-semibold mt-2">{{selectedProduct.netPrice | currency:'USD'}}</p>
         </div>
-        <button (click)="addToCart(selectedProduct)" pButton pRipple label="Add to Cart"
+        <button (click)="addToCart(selectedProduct, cartQuantity)" pButton pRipple label="Add to Cart"
           class="bg-red-500 border-red-500 mt-3 w-full"></button>
       </div>
     </div>

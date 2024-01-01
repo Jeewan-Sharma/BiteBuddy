@@ -28,7 +28,7 @@
 
 <p-dialog *ngIf="_deviceWidthService.screenSize === 'lg' || _deviceWidthService.screenSize === 'xl'"
   class="header-less-dialog" [modal]='true' [(visible)]="detailsVisibility" [style]="{width: '50vw'}">
-  <app-details-view (closeClicked)="closeDetails($event)" [value]='cartQuantity' *ngIf="detailsVisibility"
+  <app-details-view (closeClicked)="closeDetails($event)" *ngIf="detailsVisibility"
     [selectedProduct]='selectedProduct'></app-details-view>
 </p-dialog>
 
@@ -41,7 +41,7 @@
   </ng-template>
 
   <ng-template pTemplate="content">
-    <app-details-view (closeClicked)="closeDetails($event)" [value]='cartQuantity' *ngIf="detailsVisibility"
+    <app-details-view (closeClicked)="closeDetails($event)" *ngIf="detailsVisibility"
       [selectedProduct]='selectedProduct'></app-details-view>
   </ng-template>
 

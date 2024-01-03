@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EPageState } from '@core/enums';
 import { ApiService } from '@core/services';
 import { BehaviorSubject } from 'rxjs'
-import { IFoods } from 'src/app/core/models/foods.moldel';
+import { IFoods } from '@core/models';
 
 @Component({
   selector: 'app-all-deals',

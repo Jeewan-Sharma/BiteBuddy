@@ -10,6 +10,7 @@ import { AllDealsComponent } from './components/all-deals/all-deals.component';
 import { SkeletonModule } from 'primeng/skeleton';
 import { DividerModule } from 'primeng/divider';
 import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 
 import { ListedItemsComponent, LoadingItemsComponent } from '@shared/components';
 
@@ -19,7 +20,7 @@ import { ListedItemsComponent, LoadingItemsComponent } from '@shared/components'
     HomeComponent,
     BannerComponent,
     TodaysSpecialComponent,
-    AllDealsComponent
+    AllDealsComponent,
   ],
   imports: [
     CommonModule,
@@ -27,8 +28,9 @@ import { ListedItemsComponent, LoadingItemsComponent } from '@shared/components'
     SkeletonModule,
     DividerModule,
     ButtonModule,
+    DialogModule,
     LoadingItemsComponent,
-    ListedItemsComponent
+    ListedItemsComponent,
   ]
 })
 export class HomeModule { }

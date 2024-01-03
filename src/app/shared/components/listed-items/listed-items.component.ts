@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DeviceWidthService } from '@core/services';
+import { CartService, DeviceWidthService } from '@core/services';
 import { DialogModule } from 'primeng/dialog';
 import { SidebarModule } from 'primeng/sidebar';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
 import { MessageService } from 'primeng/api';
 import { FormsModule } from '@angular/forms';
-import { IFoods } from 'src/app/core/models/foods.moldel';
+import { IFoods } from '@core/models';
 import { DetailsViewComponent } from '@shared/components';
 
 @Component({
@@ -24,9 +24,14 @@ export class ListedItemsComponent {
 
   @Input() foods: any;
 
-  constructor(protected _deviceWidthService: DeviceWidthService, private _messageService: MessageService) { }
+  constructor(
+    protected _deviceWidthService: DeviceWidthService,
+    private _messageService: MessageService,
+    private _cartService: CartService
+  ) { }
 
   viewDetails(product: IFoods) {
+    this._deviceWidthService.getScreenSize();
     this.detailsVisibility = true;
     this.selectedProduct = product;
   }
@@ -35,14 +40,13 @@ export class ListedItemsComponent {
     this.detailsVisibility = event
   }
 
-  async addToCart(selectedProduct: IFoods) {
-    // selectedProduct.quantityInCart = this.value;
-    // const res = await this._restaurantService.addToCart(selectedProduct)
-    // if (res) {
-    this._messageService.add({ severity: 'success', summary: 'Added', detail: `${selectedProduct.item} added to Cart Successfully` });
-    // } else {
-    //   this._messageService.add({ severity: 'error', summary: 'Error!', detail: `${selectedProduct.item} not added to Cart` });
-    // }
+  async addToCart(selectedProduct: IFoods, quantityToAdd: number) {
+    const res = await this._cartService.addToCart(selectedProduct, quantityToAdd)
+    if (res) {
+      this._messageService.add({ severity: 'success', summary: 'Added', detail: `${selectedProduct.item} added to Cart Successfully` });
+    } else {
+      this._messageService.add({ severity: 'error', summary: 'Error!', detail: `${selectedProduct.item} not added to Cart` });
+    }
   }
 
   hideSidebar() {

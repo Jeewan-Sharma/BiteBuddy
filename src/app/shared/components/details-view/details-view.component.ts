@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IFoods } from 'src/app/core/models/foods.moldel';
+import { IFoods } from '@core/models';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
@@ -25,11 +25,11 @@ export class DetailsViewComponent {
 
   async addToCart(selectedProduct: IFoods, quantityToAdd: number) {
     const res = await this._cartService.addToCart(selectedProduct, quantityToAdd)
-    // if (res) {
-    this._messageService.add({ severity: 'success', summary: 'Added', detail: `${selectedProduct.item} added to Cart Successfully` });
-    // } else {
-    //   this._messageService.add({ severity: 'error', summary: 'Error!', detail: `${selectedProduct.item} not added to Cart` });
-    // }
+    if (res) {
+      this._messageService.add({ severity: 'success', summary: 'Added', detail: `${selectedProduct.item} added to Cart Successfully` });
+    } else {
+      this._messageService.add({ severity: 'error', summary: 'Error!', detail: `${selectedProduct.item} not added to Cart` });
+    }
   }
 
   onCloseClick() {

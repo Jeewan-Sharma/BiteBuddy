@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IBusinessDetails } from '../models/businessDetails.model';
 import { PSEUDO_API } from '../const/pseudo-api.const';
-import { IFoods } from '../models/foods.moldel';
+import { IFoods } from '@core/models';
 
 @Injectable({
   providedIn: 'root'

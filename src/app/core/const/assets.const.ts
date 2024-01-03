@@ -7,6 +7,7 @@ const IMAGES = {
   CLOSED: `${IMAGE_BASE}/closed.png`,
   MOMO: `${IMAGE_BASE}/foods/momo.jpg`,
   PIZZA: `${IMAGE_BASE}/foods/pizza.jpg`,
+  STICKER_EMPTY_CART: `${IMAGE_BASE}/emptyCart.png`,
 }
 
 

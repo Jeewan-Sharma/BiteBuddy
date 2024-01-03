@@ -56,7 +56,7 @@
         </div>
         <p class="text-4xl text-800 font-semibold mt-2">{{selectedProduct.netPrice | currency:'USD'}}</p>
       </div>
-      <button (click)="addToCart(selectedProduct)" pButton pRipple label="Add to Cart"
+      <button (click)="addToCart(selectedProduct, cartQuantity)" pButton pRipple label="Add to Cart"
         class="bg-red-500 border-red-500 mt-3 w-full"></button>
     </div>
   </ng-template>

@@ -25,7 +25,7 @@ export class AppLayoutComponent {
   }
 
   proceedToCheckout() {
-    this._router.navigateByUrl('/restaurant/checkout')
+    this._router.navigateByUrl('/checkout')
     this.closeCart();
   }
 }

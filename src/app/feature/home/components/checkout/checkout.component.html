@@ -1,0 +1,262 @@
+<div class="surface-100 min-h-screen">
+  <div class="lg:px-8">
+    <div class="lg:px-8">
+      <div class="grid py-4"
+        [ngClass]="{'flex-column-reverse': _deviceWidthService.screenSize === 'sm' || _deviceWidthService.screenSize === 'md' }">
+        <!-- form -->
+        <div class="col-12 lg:col-8 px-3">
+          <div class="bg-white border-round p-4 overflow-auto"
+            [ngClass]="{'max-card-height': _deviceWidthService.screenSize === 'lg' || _deviceWidthService.screenSize === 'xl' }">
+            <p-tabView [(activeIndex)]="activeIndex">
+              <p-tabPanel header="Order Information">
+                <!-- method selection -->
+                <p class="text-2xl text-800 text-center font-semibold">Select the Method of Order</p>
+                <div class="flex flex-column align-items-center">
+                  <div class="mt-3 flex gap-4">
+                    <div (click)="selectMethod('Dine In')">
+                      <div [ngClass]="selectedMethod == 'Dine In' ? 'selected' : 'hover-border'"
+                        class="border-3 border-circle p-3 cursor-pointer flex flex-column align-items-center">
+                        <img [src]=ASSETS.IMAGES.DINE_IN alt="Dine In" class="w-2rem lg:w-4rem">
+                      </div>
+                      <p [ngClass]="selectedMethod == 'Dine In' ? 'text-red-500 font-semibold' : ''"
+                        class="text-xl text-800 text-center">Dine In</p>
+                    </div>
+                    <div (click)="selectMethod('Take Away')">
+                      <div [ngClass]="selectedMethod == 'Take Away' ? 'selected' : 'hover-border'"
+                        class="border-3 border-circle p-3 cursor-pointer flex flex-column align-items-center">
+                        <img [src]=ASSETS.IMAGES.TAKE_AWAY alt="Take Away" class="w-2rem lg:w-4rem">
+                      </div>
+                      <p [ngClass]="selectedMethod == 'Take Away' ? 'text-red-500 font-semibold' : ''"
+                        class="text-xl text-800 text-center">Take Away</p>
+                    </div>
+
+                    <div (click)="selectMethod('Delivery')">
+                      <div [ngClass]="selectedMethod == 'Delivery' ? 'selected' : 'hover-border'"
+                        class="border-3 border-circle p-3 cursor-pointer flex flex-column align-items-center">
+                        <img [src]=ASSETS.IMAGES.DELIVERY alt="Delivery" class="w-2rem lg:w-4rem">
+                      </div>
+                      <p [ngClass]="selectedMethod == 'Delivery' ? 'text-red-500 font-semibold' : ''"
+                        class="text-xl text-800 text-center">Delivery</p>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- form -->
+                <form [formGroup]="personalDetailForm">
+                  <!-- personal -->
+                  <p class="font-bold text-xl mt-3">Personal Information</p>
+                  <div class="grid mt-2">
+                    <div class="col-12 md:col-6">
+                      <p class="text-700 text-lg mb-1">First Name <span class="text-red-600">*</span></p>
+                      <input formControlName="firstName" pInputText placeholder="First Name" class="w-full" />
+                      <div
+                        *ngIf="personalDetailForm.get('firstName')?.invalid && personalDetailForm.get('firstName')?.touched">
+                        <p class="text-red-500">First Name is required.</p>
+                      </div>
+                    </div>
+                    <div class="col-12 md:col-6">
+                      <p class="text-700 text-lg mb-1">Last Name <span class="text-red-600">*</span></p>
+                      <input formControlName="lastName" pInputText placeholder="Last Name" class="w-full" />
+                      <div
+                        *ngIf="personalDetailForm.get('lastName')?.invalid && personalDetailForm.get('lastName')?.touched">
+                        <p class="text-red-500">Last Name is required.</p>
+                      </div>
+                    </div>
+                    <div class="col-12 md:col-6 mt-2">
+                      <p class="text-700 text-lg mb-1">Email <span class="text-red-600">*</span></p>
+                      <input formControlName="email" pInputText placeholder="jeewan@gmail.com" class="w-full" />
+                      <div *ngIf="personalDetailForm.get('email')?.invalid && personalDetailForm.get('email')?.touched">
+                        <p class="text-red-500">Email is required and should be a valid email address.</p>
+                      </div>
+                    </div>
+                    <div class="col-12 md:col-6 mt-2">
+                      <p class="text-700 text-lg mb-1">Phone <span class="text-red-600">*</span></p>
+                      <p-inputMask mask="(999) 999-9999" formControlName="phone" placeholder="(999) 999-9999"
+                        styleClass="w-full"></p-inputMask>
+                      <div *ngIf="personalDetailForm.get('phone')?.invalid && personalDetailForm.get('phone')?.touched">
+                        <p class="text-red-500">Phone Numbers is required.</p>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <!-- Delivery -->
+                <form [formGroup]="deliveryForm">
+                  <!-- Delivery Address -->
+                  <div *ngIf="selectedMethod ==='Delivery'" class="grid mt-2">
+                    <div class="col-6">
+                      <p class="text-700 text-lg mb-1">Street Address <span class="text-red-600">*</span></p>
+                      <input formControlName="streetAddress" pInputText placeholder="Street Address" class="w-full" />
+                      <div
+                        *ngIf="deliveryForm.get('streetAddress')?.invalid && deliveryForm.get('streetAddress')?.touched">
+                        <p class="text-red-500">Street Address is required.</p>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <p class="text-700 text-lg mb-1">City <span class="text-red-600">*</span></p>
+                      <input formControlName="city" pInputText placeholder="Irving" class="w-full" />
+                      <div *ngIf="deliveryForm.get('city')?.invalid && deliveryForm.get('city')?.touched">
+                        <p class="text-red-500">City is required.</p>
+                      </div>
+                    </div>
+                    <div class="mt-2 col-6">
+                      <p class="text-700 text-lg mb-1">State <span class="text-red-600">*</span></p>
+                      <input formControlName="state" pInputText placeholder="Texas" class="w-full" />
+                      <div *ngIf="deliveryForm.get('state')?.invalid && deliveryForm.get('state')?.touched">
+                        <p class="text-red-500">State is required.</p>
+                      </div>
+                    </div>
+                    <div class="col-6 mt-2">
+                      <p class="text-700 text-lg mb-1">Zip Code <span class="text-red-600">*</span></p>
+                      <p-inputMask mask="999" formControlName="zipCode" placeholder="789"
+                        styleClass="w-full"></p-inputMask>
+                      <div *ngIf="deliveryForm.get('zipCode')?.invalid && deliveryForm.get('zipCode')?.touched">
+                        <p class="text-red-500">Zip Code is required and should contain 3 numbers.</p>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <button (click)="proceedToPayment()" pButton pRipple label="Proceed to Payment"
+                  class="mt-3 w-full bg-red-500 border-red-500"></button>
+              </p-tabPanel>
+              <p-tabPanel header="Payment Information" [disabled]="disablePaymentTab">
+                <form [formGroup]="paymentDetailForm">
+                  <div class="flex justify-content-center">
+                    <div class="mt-3 w-full lg:w-28rem">
+                      <div class="border-round background py-3 px-4">
+                        <div class="flex justify-content-end">
+                          <img [src]=ASSETS.IMAGES.VISA_CARD alt="Visa" class="w-4rem">
+                        </div>
+                        <img [src]=ASSETS.IMAGES.CHIP alt="Visa" class="w-4rem mt-2">
+                        <!-- here -->
+                        <p class="h-2rem text-white text-2xl font-bold">
+                          {{(paymentDetailForm.get('cardNumber')?.value)?(paymentDetailForm.get('cardNumber')?.value):'XXXXXXXX
+                          XXXX XXXX'}}</p>
+                        <div class="flex justify-content-between mt-2">
+                          <p class="h-2rem text-white md:text-2xl font-bold">
+                            {{(personalDetailForm.get('firstName')?.value)?(personalDetailForm.get('firstName')?.value):'Jeewan'}}
+                            {{(personalDetailForm.get('lastName')?.value)?personalDetailForm.get('lastName')?.value:'Sharma'}}
+                          </p>
+                          <p class="h-2rem text-white md:text-2xl font-bold">
+                            {{(paymentDetailForm.get('expiryDate')?.value)?(paymentDetailForm.get('expiryDate')?.value |
+                            date):today | date}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="grid mt-3">
+                    <div class="col-12">
+                      <p class="text-700 text-lg mb-1">Card Number<span class="text-red-600">*</span></p>
+                      <p-inputMask mask="9999 9999 9999 9999" formControlName="cardNumber"
+                        placeholder="XXXX XXXX XXXX XXXX" styleClass="w-full"></p-inputMask>
+                      <div
+                        *ngIf="paymentDetailForm.get('cardNumber')?.invalid && paymentDetailForm.get('cardNumber')?.touched">
+                        <p class="text-red-500">Card Number is required.</p>
+                      </div>
+                    </div>
+                    <div class="mt-2 col-6">
+                      <p class="text-700 text-lg mb-1">Expiry Date<span class="text-red-600">*</span></p>
+                      <p-calendar [minDate]="today" formControlName="expiryDate" styleClass="w-full"></p-calendar>
+                      <div
+                        *ngIf="paymentDetailForm.get('expiryDate')?.invalid && paymentDetailForm.get('expiryDate')?.touched">
+                        <p class="text-red-500">Expiry Date is required.</p>
+                      </div>
+                    </div>
+                    <div class="mt-2 col-6">
+                      <p class="text-700 text-lg mb-1">CVC <span class="text-red-600">*</span></p>
+                      <p-inputMask mask="999" formControlName="cvc" placeholder="XXX" styleClass="w-full"></p-inputMask>
+                      <div *ngIf="paymentDetailForm.get('cvc')?.invalid && paymentDetailForm.get('cvc')?.touched">
+                        <p class="text-red-500">CVC is required.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <button (click)="submit()" pButton pRipple label="Checkout"
+                    class="mt-3 w-full bg-red-500 border-red-500"></button>
+                </form>
+              </p-tabPanel>
+            </p-tabView>
+          </div>
+        </div>
+        <!-- Summary -->
+        <div class="col-12 lg:col-4 px-3">
+          <div class="bg-white border-round p-4 overflow-auto"
+            [ngClass]="{'max-card-height': _deviceWidthService.screenSize === 'lg' || _deviceWidthService.screenSize === 'xl' }">
+            <p class="text-3xl text-800 font-semibold">Your Order</p>
+            <div class="mt-3">
+              <div *ngFor="let products of _cartService.cartProducts | async let last = last" class=" border-300 py-2"
+                [ngClass]="{'border-bottom-1': last}">
+                <div class="grid">
+                  <div class="col-2 text-xl text-600">
+                    {{products.quantityInCart}} x
+                  </div>
+                  <div class="col-8 text-xl text-600 white-space-nowrap overflow-hidden text-overflow-ellipsis">
+                    {{products.food.item}}
+                  </div>
+                  <div class="col-2 text-xl text-600">
+                    {{products.food.netPrice}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-content-between align-items-center mt-2">
+              <p class="text-xl font-semibold text-600">Total Items</p>
+              <p class="text-2xl font-semibold text-600">{{allCalculatedValues.totalItems}}</p>
+            </div>
+            <div class="flex justify-content-between align-items-center mt-2">
+              <p class="text-xl font-semibold text-600">Sub Total</p>
+              <p class="text-2xl font-semibold text-600">{{allCalculatedValues.subtotal | currency:'USD'}}</p>
+            </div>
+            <div class="flex justify-content-between align-items-center mt-2">
+              <p class="text-xl font-semibold text-600">Discount</p>
+              <p class="text-2xl font-semibold text-600">{{allCalculatedValues.discount | currency:'USD'}}</p>
+            </div>
+            <div *ngIf="selectedMethod == 'Delivery' && this.cartProducts.length != 0"
+              class="flex justify-content-between align-items-center mt-2">
+              <p class="text-xl font-semibold text-600">Shipping Fee</p>
+              <p class="text-2xl font-semibold text-600">{{CONFIG.SHIPPING_FEE | currency:'USD'}}</p>
+            </div>
+            <p-divider></p-divider>
+            <div class="flex justify-content-between align-items-center">
+              <p class="text-3xl font-semibold text-600">Total</p>
+              <p class="text-4xl font-bold text-900">{{allCalculatedValues.netPrice | currency:'USD'}}</p>
+            </div>
+            <p-divider></p-divider>
+
+            <form [formGroup]="specialInstructionForm">
+              <p class="text-xl font-semibold text-600">Special Instructions</p>
+              <textarea class="mt-2" rows="4" cols="50" [autoResize]="true" pInputTextarea
+                formControlName="specialInstruction"></textarea>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p-dialog *ngIf="_deviceWidthService.screenSize === 'lg' || _deviceWidthService.screenSize === 'xl'"
+  class="no-header-dialog" [modal]='true' [(visible)]="responseVisibility" [style]="{width: '30vw'}"
+  [breakpoints]="{ '768px': '100vw'}">
+  <div class="p-3">
+    <p class="text-3xl text-center text-800 font-bold">Order Successful</p>
+    <img [src]=ASSETS.IMAGES.SUCCESS alt="">
+    <button (click)="_router.navigateByUrl('/restaurant')" pButton pRipple label="Okay"
+      class="w-full bg-red-500 border-red-500"></button>
+  </div>
+</p-dialog>
+
+
+<p-sidebar class="no-header-sidebar"
+  *ngIf="_deviceWidthService.screenSize === 'sm' || _deviceWidthService.screenSize === 'md'"
+  [(visible)]="responseVisibility" position="bottom" [style]="{height:'50vh'}" styleClass="border-round-top"
+  [modal]="false">
+
+  <ng-template pTemplate="content">
+    <p class="text-3xl text-center text-800 font-bold mt-2">Order Successful</p>
+    <img [src]=ASSETS.IMAGES.SUCCESS alt="">
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button (click)="_router.navigateByUrl('/restaurant')" pButton pRipple label="Okay"
+      class="w-full bg-red-500 border-red-500"></button>
+  </ng-template>
+</p-sidebar>

@@ -97,7 +97,7 @@ export class CartComponent {
 
   proceedToCheckout() {
     this.onCloseClick();
-    this._router.navigate(['restaurant', 'checkout'])
+    this._router.navigate(['', 'checkout'])
   }
 
   cancelDelete() {

@@ -1,0 +1,23 @@
+.selected {
+  border-color: var(--red-500) !important;
+}
+
+.hover-border {
+  border-color: var(--gray-300) !important;
+  &:hover {
+    border-color: var(--red-100) !important;
+  }
+}
+
+.logo {
+  font-family: cursive;
+}
+
+.background {
+  background: linear-gradient(rgb(137, 137, 236), rgb(42, 42, 79));
+}
+
+.max-card-height {
+  height: 43rem;
+  max-height: 43rem;
+}

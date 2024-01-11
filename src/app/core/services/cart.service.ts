@@ -25,7 +25,6 @@ export class CartService {
         }
         const newDataJSON = JSON.stringify(storedRestaurantData);
         localStorage.setItem('BBCartProducts', newDataJSON);
-        console.log(storedRestaurantData);
         resolve(true);
       } catch (e) {
         reject(false)

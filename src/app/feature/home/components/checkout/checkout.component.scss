@@ -21,3 +21,11 @@
   height: 43rem;
   max-height: 43rem;
 }
+
+:host {
+  ::ng-deep {
+    .p-sidebar-header {
+      display: none;
+    }
+  }
+}

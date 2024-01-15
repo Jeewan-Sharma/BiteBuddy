@@ -138,7 +138,7 @@ export class CheckoutComponent implements OnInit {
       this.paymentDetailForm.markAllAsTouched();
       return
     }
-    console.log('Submitted')
+    this._cartService.clearCartProducts()
     this.responseVisibility = true
   }
 

@@ -85,4 +85,8 @@ export class CartService {
     })
   }
 
+  clearCartProducts() {
+    localStorage.setItem('BBCartProducts', '');
+  }
+
 }

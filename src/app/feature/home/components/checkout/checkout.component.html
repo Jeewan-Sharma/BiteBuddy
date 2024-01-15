@@ -1,8 +1,7 @@
 <div class="surface-100 min-h-screen">
   <div class="lg:px-8">
     <div class="lg:px-8">
-      <div class="grid py-4"
-        [ngClass]="{'flex-column-reverse': _deviceWidthService.screenSize === 'sm' || _deviceWidthService.screenSize === 'md' }">
+      <div class="grid py-4">
         <!-- form -->
         <div class="col-12 lg:col-8 px-3">
           <div class="bg-white border-round p-4 overflow-auto"
@@ -223,8 +222,7 @@
 
             <form [formGroup]="specialInstructionForm">
               <p class="text-xl font-semibold text-600">Special Instructions</p>
-              <textarea class="mt-2" rows="4" cols="50" [autoResize]="true" pInputTextarea
-                formControlName="specialInstruction"></textarea>
+              <textarea class="mt-2 w-full" rows="4" pInputTextarea formControlName="specialInstruction"></textarea>
             </form>
           </div>
         </div>
@@ -235,7 +233,7 @@
 
 
 <p-dialog *ngIf="_deviceWidthService.screenSize === 'lg' || _deviceWidthService.screenSize === 'xl'"
-  class="no-header-dialog" [modal]='true' [(visible)]="responseVisibility" [style]="{width: '30vw'}"
+  class="header-less-dialog" [modal]='true' [(visible)]="responseVisibility" [style]="{width: '30vw'}"
   [breakpoints]="{ '768px': '100vw'}">
   <div class="p-3">
     <p class="text-3xl text-center text-800 font-bold">Order Successful</p>
@@ -246,17 +244,17 @@
 </p-dialog>
 
 
-<p-sidebar class="no-header-sidebar"
-  *ngIf="_deviceWidthService.screenSize === 'sm' || _deviceWidthService.screenSize === 'md'"
+<p-sidebar *ngIf="_deviceWidthService.screenSize === 'sm' || _deviceWidthService.screenSize === 'md'"
   [(visible)]="responseVisibility" position="bottom" [style]="{height:'50vh'}" styleClass="border-round-top"
   [modal]="false">
-
   <ng-template pTemplate="content">
     <p class="text-3xl text-center text-800 font-bold mt-2">Order Successful</p>
     <img [src]=ASSETS.IMAGES.SUCCESS alt="">
   </ng-template>
   <ng-template pTemplate="footer">
-    <button (click)="_router.navigateByUrl('/restaurant')" pButton pRipple label="Okay"
-      class="w-full bg-red-500 border-red-500"></button>
+    <div class="px-2 pb-2">
+      <button (click)="_router.navigateByUrl('/restaurant')" pButton pRipple label="Okay"
+        class="w-full bg-red-500 border-red-500"></button>
+    </div>
   </ng-template>
 </p-sidebar>
